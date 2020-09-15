@@ -2,31 +2,31 @@ import { IssueLabel } from "./issue-label";
 import { IssuePullRequest } from "./issue-pull-reques";
 import { IssueUser } from "./issue-user";
 
-export type Issue = {
-    active_lock_reason?: string;
-    assignee?: string;
-    assignees?: any[];
-    author_association?: string;
-    body: string;
-    closed_at?: string;
-    comments: number
-    comments_url: string;
-    created_at: string;
-    events_url: string;
-    html_url: string;
-    id: number;
-    labels: IssueLabel[];
-    labels_url: string;
-    locked: boolean;
-    milestone: string;
-    node_id: string;
-    number: number;
-    performed_via_github_app?: string;
-    pull_request: IssuePullRequest;
-    repository_url: string;
-    state: string;
-    title: string;
-    updated_at: string;
-    url: string;
-    user: IssueUser;
+export class Issue {
+    public active_lock_reason?: string;
+    public assignee?: string;
+    public assignees?: any[];
+    public author_association?: string;
+    public body: string = "";
+    public closed_at?: string;
+    public comments: number = 0;
+    public comments_url: string = '';
+    public created_at: string = '';
+    public events_url: string = '';
+    public html_url: string = '';
+    public id: number = 0;
+    public labels: IssueLabel[] = [];
+    public labels_url: string = '';
+    public locked: boolean = false;
+    public milestone: string = '';
+    public node_id: string = '';
+    public number: number = 0;
+    public performed_via_github_app?: string;
+    public pull_request?: IssuePullRequest;
+    public repository_url: string = '';
+    public state: string = '';
+    public title: string = '';
+    public updated_at: string = '';
+    public url: string = '';
+    public user?: IssueUser;
 }
