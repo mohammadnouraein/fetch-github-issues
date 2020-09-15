@@ -1,5 +1,4 @@
 import { HttpRequest } from '../base/http-request.service';
-import { AxiosResponse } from 'axios';
 import { Issue } from './issue';
 export enum IssueState {
     OPEN = 'open',
