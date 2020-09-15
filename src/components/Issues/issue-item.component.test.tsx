@@ -1,17 +1,18 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, getByRole } from '@testing-library/react';
 import { IssueItem } from './issue-item.component';
 import { Issue } from '../../services/issues/issue';
 
 describe('test issue item component', () => {
     let mockIssue = new Issue()
     beforeAll(() => {
-        mockIssue.id = 121354;
+        mockIssue.number = 121354;
+        mockIssue.created_at='2020-09-14T20:42:09Z';
     });
 
     test('renders issue item', () => {
-        const { getByText } = render(<IssueItem issue={mockIssue} />);
-        const linkElement = getByText(`id: ${mockIssue.id}`);
-        expect(linkElement).toBeInTheDocument();
+        const { getByRole } = render(<IssueItem issue={mockIssue} />);
+        const linkElement = getByRole('issue-description');
+        expect(linkElement).toHaveTextContent(`#${mockIssue.number}`);
     });
 })
